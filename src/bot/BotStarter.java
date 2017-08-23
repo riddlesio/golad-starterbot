@@ -80,7 +80,7 @@ public class BotStarter {
         ArrayList<Point> myCells = new ArrayList<>(cellMap.get(state.getBoard().getMyId()));
 
         if (deadCells.size() <= 0 || myCells.size() < 2) {
-            return new PassMove();
+            return doRandomKillMove(state, cellMap);
         }
 
         int birthIndex = this.random.nextInt(deadCells.size());
