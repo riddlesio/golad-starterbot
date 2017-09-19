@@ -114,14 +114,14 @@ class BotParser {
                 case "your_botid":
                     int myId = Integer.parseInt(value);
                     int opponentId = 2 - (myId + 1);
-                    this.currentState.getBoard().setMyId(myId);
-                    this.currentState.getBoard().setOpponentId(opponentId);
+                    this.currentState.getField().setMyId(myId);
+                    this.currentState.getField().setOpponentId(opponentId);
                     break;
-                case "board_width":
-                    this.currentState.getBoard().setWidth(Integer.parseInt(value));
+                case "field_width":
+                    this.currentState.getField().setWidth(Integer.parseInt(value));
                     break;
-                case "board_height":
-                    this.currentState.getBoard().setHeight(Integer.parseInt(value));
+                case "field_height":
+                    this.currentState.getField().setHeight(Integer.parseInt(value));
                     break;
                 case "max_rounds":
                     this.currentState.setMaxRounds(Integer.parseInt(value));
@@ -148,8 +148,8 @@ class BotParser {
                 case "round":
                     this.currentState.setRoundNumber(Integer.parseInt(value));
                     break;
-                case "board":
-                    this.currentState.getBoard().parseFromString(value);
+                case "field":
+                    this.currentState.getField().parseFromString(value);
                     break;
                 default:
                     System.err.println(String.format(

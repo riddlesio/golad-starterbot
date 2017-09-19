@@ -57,7 +57,7 @@ public class BotStarter {
     AbstractMove doMove(BotState state) {
         AbstractMove move;
         double pMoveType = this.random.nextDouble();
-        HashMap<String, ArrayList<Point>> cellMap = state.getBoard().getCellMapping();
+        HashMap<String, ArrayList<Point>> cellMap = state.getField().getCellMapping();
 
         if (pMoveType < 0.5) {
             move = doRandomBirthMove(state, cellMap);
@@ -72,12 +72,12 @@ public class BotStarter {
      * Selects one dead cell and two of own living cells a random to birth a new cell
      * on at the point of the dead cell
      * @param state Current bot state
-     * @param cellMap A mapping of the points on the board by cell type
+     * @param cellMap A mapping of the points on the field by cell type
      * @return A random BirthMove or a PassMove if no BirthMove is possible
      */
     private AbstractMove doRandomBirthMove(BotState state, HashMap<String, ArrayList<Point>> cellMap) {
         ArrayList<Point> deadCells = cellMap.get(".");
-        ArrayList<Point> myCells = new ArrayList<>(cellMap.get(state.getBoard().getMyId()));
+        ArrayList<Point> myCells = new ArrayList<>(cellMap.get(state.getField().getMyId()));
 
         if (deadCells.size() <= 0 || myCells.size() < 2) {
             return doRandomKillMove(state, cellMap);
@@ -97,14 +97,14 @@ public class BotStarter {
     }
 
     /**
-     * Selects one living cell on the board and kills it
+     * Selects one living cell on the field and kills it
      * @param state Current bot state
-     * @param cellMap A mapping of the points on the board by cell type
+     * @param cellMap A mapping of the points on the field by cell type
      * @return A random KillMove or a PassMove if no KillMove is possible
      */
     private AbstractMove doRandomKillMove(BotState state, HashMap<String, ArrayList<Point>> cellMap) {
-        String myId = state.getBoard().getMyId();
-        String opponentId = state.getBoard().getOpponentId();
+        String myId = state.getField().getMyId();
+        String opponentId = state.getField().getOpponentId();
 
         List<Point> livingCells = Stream.
                 concat(cellMap.get(myId).stream(), cellMap.get(opponentId).stream()).

@@ -21,7 +21,7 @@ package bot;
 
 import java.util.HashMap;
 
-import board.Board;
+import field.Field;
 import player.Player;
 
 /**
@@ -29,7 +29,7 @@ import player.Player;
  *
  * Stores the complete state of the bot as it currently is,
  * Contains settings given by the engine, but also stuff that changes
- * each round, such as the board and the score for each player.
+ * each round, such as the field and the score for each player.
  *
  * @author Jim van Eeden - jim@riddles.io
  */
@@ -43,10 +43,10 @@ public class BotState {
     private String myName;
     private HashMap<String, Player> players;
 
-    private Board board;
+    private Field field;
 
     BotState() {
-        this.board = new Board();
+        this.field = new Field();
         this.players = new HashMap<>();
     }
 
@@ -86,8 +86,8 @@ public class BotState {
         return this.players;
     }
 
-    public Board getBoard() {
-        return this.board;
+    public Field getField() {
+        return this.field;
     }
 
     public String getMyName() {

@@ -1,18 +1,18 @@
-package board;
+package field;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * board.Board - Created on 24-2-17
+ * field.Board - Created on 24-2-17
  *
- * Stores all information about the game board and
+ * Stores all information about the game field and
  * contains methods to perform calculations on it
  *
  * @author Jim van Eeden - jim@riddles.io
  */
-public class Board {
+public class Field {
 
     private String myId;
     private String opponentId;
@@ -21,13 +21,13 @@ public class Board {
 
     private String[][] cells;
 
-    public Board() {
+    public Field() {
 
     }
 
     /**
      * Parses the input string given by the engine
-     * @param input String representation of the board
+     * @param input String representation of the field
      */
     public void parseFromString(String input) {
         this.cells = new String[this.width][this.height];
@@ -45,7 +45,7 @@ public class Board {
     }
 
     /**
-     * Get the points on the board per cell type
+     * Get the points on the field per cell type
      * @return A HashMap with points by cell type
      */
     public HashMap<String, ArrayList<Point>> getCellMapping() {
