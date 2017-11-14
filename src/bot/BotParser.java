@@ -183,6 +183,7 @@ class BotParser {
                     break;
                 case "move":
                     player.setPreviousMove(value);
+                    break;
                 default:
                     System.err.println(String.format(
                             "Cannot parse %s data input with key '%s'", playerName, key));
