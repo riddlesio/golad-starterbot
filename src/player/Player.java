@@ -30,6 +30,7 @@ public class Player {
 
     private String name;
     private int livingCells;
+    private String previousMove;
 
     public Player(String playerName) {
         this.name = playerName;
@@ -45,5 +46,13 @@ public class Player {
 
     public void setLivingCells(int livingCells) {
         this.livingCells = livingCells;
+    }
+
+    public String getPreviousMove() {
+        return this.previousMove;
+    }
+
+    public void setPreviousMove(String moveString) {
+        this.previousMove = moveString;
     }
 }

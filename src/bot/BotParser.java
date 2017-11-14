@@ -181,6 +181,8 @@ class BotParser {
                 case "living_cells":
                     player.setLivingCells(Integer.parseInt(value));
                     break;
+                case "move":
+                    player.setPreviousMove(value);
                 default:
                     System.err.println(String.format(
                             "Cannot parse %s data input with key '%s'", playerName, key));
